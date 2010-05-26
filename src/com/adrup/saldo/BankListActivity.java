@@ -74,13 +74,17 @@ public class BankListActivity extends ListActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
-		LockActivity.lockTime(this);
+		if(!LockActivity.lock(this)){
+			LockActivity.lockTime(this);
+		}
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		LockActivity.lock(this);
+		if(LockActivity.lock(this)){
+			startActivity(new Intent(this, LockActivity.class));
+		}
 	}
 
 	private void fillData() {

@@ -49,4 +49,5 @@
         <item>Halvtimme</item>
         <item>15 min</item>
     </string-array>   
+    <string name="lock_pincode">Pinkod</string>
 </resources>

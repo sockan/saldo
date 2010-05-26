@@ -13,7 +13,7 @@
     <string name="refresh">Update</string>
     
 	<string name="widget_text">--- kr</string>
-	<string name="widgetconfig_empty">You can't add a widget without any bank accounts.</string>
+	<string name="widgetconfig_empty">You can\'t add a widget without any bank accounts.</string>
     
     <string name="menu_item_banks">Banks</string>
     <string name="menu_item_settings">Settings</string>
@@ -65,4 +65,5 @@
         <item>Half hour</item>
         <item>15 min</item>
     </string-array>   
+    <string name="lock_pincode">Pincode</string>
 </resources>

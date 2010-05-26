@@ -3,6 +3,20 @@
 	android:orientation="vertical" 
 	android:layout_width="fill_parent" 
 	android:layout_height="fill_parent">
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:padding="5dp" 
+		android:background="#FF333333"
+		android:text="Password lock" />
+	<CheckedTextView 
+		 android:id="@+id/password_lock"
+		 android:layout_width="fill_parent" 
+         android:layout_height="wrap_content" 
+         android:textAppearance="?android:attr/textAppearanceLarge" 
+         android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+         android:text="Lock"
+         android:gravity="fill_vertical"
+		/>
 	<TextView	
 	xmlns:android="http://schemas.android.com/apk/res/android"	
 	android:layout_width="fill_parent"	

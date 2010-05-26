@@ -21,9 +21,8 @@
 
 package com.adrup.saldo;
 
-import com.adrup.saldo.bank.BankLogin;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,6 +33,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
+
+import com.adrup.saldo.bank.BankLogin;
 
 /**
  * An activity that displays and handles the creation and editing of a single {@link BankLogin}.
@@ -125,11 +126,17 @@ public class BankLoginEditActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
+		if(!LockActivity.lock(this)){
+			LockActivity.lockTime(this);
+		}
     }
     
     @Override
     protected void onResume() {
         super.onResume();
+		if(LockActivity.lock(this)){
+			startActivity(new Intent(this, LockActivity.class));
+		}
         populateFields();
     }
     
