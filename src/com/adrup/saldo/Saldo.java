@@ -21,14 +21,9 @@
 
 package com.adrup.saldo;
 
-import com.adrup.saldo.bank.Account;
-import com.adrup.saldo.bank.AccountHashKey;
-import com.adrup.saldo.bank.BankException;
-import com.adrup.saldo.bank.BankLogin;
-import com.adrup.saldo.bank.BankManager;
-import com.adrup.saldo.bank.BankManagerFactory;
-import com.adrup.saldo.bank.RemoteAccount;
-import com.adrup.util.SectionedAdapter;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -55,9 +50,14 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import com.adrup.saldo.bank.Account;
+import com.adrup.saldo.bank.AccountHashKey;
+import com.adrup.saldo.bank.BankException;
+import com.adrup.saldo.bank.BankLogin;
+import com.adrup.saldo.bank.BankManager;
+import com.adrup.saldo.bank.BankManagerFactory;
+import com.adrup.saldo.bank.RemoteAccount;
+import com.adrup.util.SectionedAdapter;
 
 /**
  * Main entry for application.
@@ -160,6 +160,9 @@ public class Saldo extends Activity {
 	protected void onResume() {
 		Log.d(TAG, "onResume()");
 		super.onResume();
+		if(LockActivity.lock(this)){
+			startActivity(new Intent(this, LockActivity.class));
+		}
 		loadAccountsList();
 	}
 
@@ -167,6 +170,9 @@ public class Saldo extends Activity {
 	protected void onPause() {
 		Log.d(TAG, "onPause()");
 		super.onPause();
+		if(!LockActivity.lock(this)){
+			LockActivity.lockTime(this);
+		}
 	}
 
 	@Override

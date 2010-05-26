@@ -21,15 +21,12 @@
 
 package com.adrup.saldo;
 
-import com.adrup.saldo.bank.Account;
-import com.adrup.saldo.bank.AccountHashKey;
-import com.adrup.saldo.bank.AuthenticationException;
-import com.adrup.saldo.bank.BankException;
-import com.adrup.saldo.bank.BankLogin;
-import com.adrup.saldo.bank.BankManager;
-import com.adrup.saldo.bank.BankManagerFactory;
-import com.adrup.saldo.bank.RemoteAccount;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
+import com.adrup.saldo.R;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -45,10 +42,14 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import com.adrup.saldo.bank.Account;
+import com.adrup.saldo.bank.AccountHashKey;
+import com.adrup.saldo.bank.AuthenticationException;
+import com.adrup.saldo.bank.BankException;
+import com.adrup.saldo.bank.BankLogin;
+import com.adrup.saldo.bank.BankManager;
+import com.adrup.saldo.bank.BankManagerFactory;
+import com.adrup.saldo.bank.RemoteAccount;
 
 public class AutoUpdateService extends Service {
 	private static final String TAG = "AutoUpdateService";
@@ -178,7 +179,7 @@ public class AutoUpdateService extends Service {
 		
 		NotificationManager nm = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
 		Notification notification = new Notification(R.drawable.icon, msg, System.currentTimeMillis());
-		
+
 		if (prefs.getBoolean(Constants.PREF_SOUND, true)) {
 		notification.defaults |= Notification.DEFAULT_SOUND;
 		}

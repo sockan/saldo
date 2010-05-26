@@ -21,8 +21,6 @@
 
 package com.adrup.saldo;
 
-import com.adrup.saldo.bank.BankLogin;
-
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -36,6 +34,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+
+import com.adrup.saldo.bank.BankLogin;
 
 /**
  * An activity that displays a list of {@link BankLogin BankLogins} and lets you add/edit/delete.
@@ -74,11 +74,13 @@ public class BankListActivity extends ListActivity {
 	@Override
 	protected void onPause() {
 		super.onPause();
+		LockActivity.lockTime(this);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
+		LockActivity.lock(this);
 	}
 
 	private void fillData() {

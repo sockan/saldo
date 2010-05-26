@@ -1,5 +1,7 @@
 package com.adrup.saldo;
 
+import java.util.Locale;
+
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpParams;
@@ -7,8 +9,6 @@ import org.apache.http.params.HttpProtocolParams;
 
 import android.content.Context;
 import android.os.Build;
-
-import java.util.Locale;
 
 public class SaldoHttpClient extends DefaultHttpClient {
 	private Context mContext;

@@ -33,4 +33,7 @@ public class Constants {
 	public static final String PREF_NOTIFY = "notify";
 	public static final String PREF_SOUND = "sound";
 	public static final String PREF_VERSION = "version";
+	public static final String LOCK_PROTECT = "lock_protect";
+	public static final String LOCK_PASSWORD = "lock_password";
+	public static final String LOCK_TIME = "lock_time";
 }
